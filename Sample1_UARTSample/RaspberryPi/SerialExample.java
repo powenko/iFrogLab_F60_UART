@@ -1,28 +1,34 @@
 
-import com.pi4j.io.gpio.GpioController;
-import com.pi4j.io.gpio.GpioFactory;
-import com.pi4j.io.gpio.GpioPinDigitalInput;
-import com.pi4j.io.gpio.GpioPinDigitalOutput;
-import com.pi4j.io.gpio.PinPullResistance;
-import com.pi4j.io.gpio.RaspiPin;
-import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
-import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 
+import java.util.Date;
+
+import com.pi4j.io.serial.Serial;
+import com.pi4j.io.serial.SerialDataEvent;
+import com.pi4j.io.serial.SerialDataListener;
+import com.pi4j.io.serial.SerialFactory;
+import com.pi4j.io.serial.SerialPortException;
+
+/**
+ * This example code demonstrates how to perform serial communications using the Raspberry Pi.
+ *
+ * @author Robert Savage
+ */
 public class SerialExample {
     
     public static void main(String args[]) throws InterruptedException {
+
         System.out.println("<--Pi4J--> Serial Communication Example ... started.");
-        System.out.println(" ... connect using settings: 38400, N, 8, 1.");
+        System.out.println(" ... connect using settings: 9600, N, 8, 1.");
         System.out.println(" ... data received on serial port should be displayed below.");
         
-        // 初始化
+        // create an instance of the serial communications class
         final Serial serial = SerialFactory.createInstance();
         
-        // 建立和註冊，用來處理接收傳過來的資料。
+        // create and register the serial data listener
         serial.addListener(new SerialDataListener() {
             @Override
             public void dataReceived(SerialDataEvent event) {
-                // 列印收到的資料
+                // print out the data received to the console
                 System.out.print(event.getData());
             }
         });
@@ -31,21 +37,28 @@ public class SerialExample {
             // open the default serial port provided on the GPIO header
             serial.open(Serial.DEFAULT_COM_PORT, 9600);
             // continuous loop to keep the program running until the user terminates the program
-            for (;;) {
+            
+            while(true) {
                 try {
+                    // write a formatted string to the serial transmit buffer
                     // 把現在的時間，傳遞過去。
                     serial.write("CURRENT TIME: %s", new Date().toString());
                     
+                    // write a individual bytes to the serial transmit buffer
                     // 把特定的byte ，傳遞過去。
                     serial.write((byte) 13);
                     serial.write((byte) 10);
                     
+                    // write a simple string to the serial transmit buffer
                     //把字串傳遞過去。
                     serial.write("Second Line");
                     
+                    // write a individual characters to the serial transmit buffer
                     // 把特定的字元 ，傳遞過去。
                     serial.write('\r');
                     serial.write('\n');
+                    
+
                     
                     // 把字串傳遞過去，並且做跳行的動作（ CR+LF ）
                     serial.writeln("Third Line");
@@ -54,7 +67,7 @@ public class SerialExample {
                     ex.printStackTrace();
                 }
                 
-                // 休息 1 秒
+                // wait 1 second before continuing
                 Thread.sleep(1000);
             }
             
@@ -65,3 +78,6 @@ public class SerialExample {
         }
     }
 }
+
+// END SNIPPET: serial-snippet
+
