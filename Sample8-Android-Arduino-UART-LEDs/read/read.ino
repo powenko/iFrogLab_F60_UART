@@ -26,7 +26,6 @@ void loop() {
                                                                       //如果資料是'H'的話，那就把LED 燈打開
     if (incomingByte == 'H') {
       digitalWrite(ledPin, HIGH);
-      
     } 
                                                                     //如果資料是'L'的話，那就把LED 燈關閉
     if (incomingByte == 'L') {
