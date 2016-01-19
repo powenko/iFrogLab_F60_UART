@@ -61,8 +61,10 @@ public class row  extends BaseAdapter  {
 		}
 		if(position%2==0){
 			holder.imageView1.setImageResource(R.drawable.pic1);   // 換圖片
+                                                                   // Change the picture
 		}else{
 			holder.imageView1.setImageResource(R.drawable.earth);   // 換圖片
+                                                                    // Change the picture
 		}
 		holder.textView1.setText(values[position]);
 		holder.textView2.setText(values2[position]);

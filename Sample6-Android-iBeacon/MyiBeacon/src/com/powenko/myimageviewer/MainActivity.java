@@ -60,11 +60,15 @@ public class MainActivity extends ActionBarActivity implements ifrogCallBack {
 		adapter=new row(this,testValues,testValues2);
 		listView1.setAdapter(adapter);
 		listView1.setOnItemClickListener(new OnItemClickListener(){      //選項按下反應
+                                                                         // Options Press Reaction
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				  String item = testValues[position];      //哪一個列表
+                                                           // Which list
+                
 			      Toast.makeText(MainActivity.this, item + " selected", Toast.LENGTH_LONG).show();       //顯示訊號
+                                                                                                         // Display signal   
 			}
 		} );
 		

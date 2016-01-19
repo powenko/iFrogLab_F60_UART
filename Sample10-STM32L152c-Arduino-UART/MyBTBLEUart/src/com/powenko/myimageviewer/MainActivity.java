@@ -51,7 +51,8 @@ public class MainActivity extends ActionBarActivity implements ifrogCallBack {
 		setContentView(R.layout.activity_main);
 	//	editText1=(EditText) findViewById(R.id.editText1 );          //取得imageView
 		imageButton1=(ImageButton) findViewById(R.id.imageButton1 ); //取得imageView
-		imageButton1.setOnClickListener(new OnClickListener(){       // 監聽按鍵動作   
+		imageButton1.setOnClickListener(new OnClickListener(){       // 監聽按鍵動作
+                                                                     // Monitor keystrokes
 			@Override
 			public void onClick(View v) {
 				 FunPopMenu(v);
@@ -66,11 +67,14 @@ public class MainActivity extends ActionBarActivity implements ifrogCallBack {
 		adapter=new row(this,testValues,testValues2);
 		listView1.setAdapter(adapter);
 		listView1.setOnItemClickListener(new OnItemClickListener(){      //選項按下反應
+                                                                         // Options Press Reaction
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				  String item = testValues[position];      //哪一個列表
+                                                           // Which list
 			      Toast.makeText(MainActivity.this, item + " selected", Toast.LENGTH_LONG).show();       //顯示訊號
+                                                                                                         // Display signal
 			      
 			  	 Intent intent = new Intent();
 				 intent.setClass(MainActivity.this, page2.class);
@@ -79,6 +83,7 @@ public class MainActivity extends ActionBarActivity implements ifrogCallBack {
                  bundle.putString("Address", testValues2[position]);        	
                  intent.putExtras(bundle);
                  startActivityForResult(intent,0);  // 關閉本頁
+                                                    // CLOSE
 			      
 			      
 			}
@@ -136,13 +141,16 @@ public class MainActivity extends ActionBarActivity implements ifrogCallBack {
         super.onActivityResult(requestCode, resultCode, data);  
         if(resultCode==RESULT_OK && requestCode==0)  {  
         	
-        	   Bundle bundle=data.getExtras();    // 取得第42. 二頁傳遞過來的資料。 
+        	   Bundle bundle=data.getExtras();    // 取得第42. 二頁傳遞過來的資料。
+                                                  // Get the first 42. The two passes over the data.
+            
         	   String message=bundle.getString("MESSAGE");
         	   Boolean Apple=bundle.getBoolean("Apple");
         	   Boolean Orange=bundle.getBoolean("Orange");
         	   Boolean Watermelon=bundle.getBoolean("Watermelon");
         	   String strApple= String.valueOf( Apple);
          //      editText1.setText(message+" Apple="+ strApple);     //顯示在畫面上
+                                                                     // Displayed on the screen
         }  
       }  
 	 

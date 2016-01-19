@@ -95,9 +95,13 @@ public class SerialDigitalPin  {
                 try {
                     // write a formatted string to the serial transmit buffer
                     // 把現在的時間，傳遞過去。
+                    // The time now, passed in the past.
+                    
                     serial.write("CURRENT TIME: %s", new Date().toString());
                     // write a individual characters to the serial transmit buffer
                     // 把特定的字元 ，傳遞過去。
+                    // The specific characters, pass it.
+                    
                     serial.write('\r');
                     serial.write('\n');
                 }

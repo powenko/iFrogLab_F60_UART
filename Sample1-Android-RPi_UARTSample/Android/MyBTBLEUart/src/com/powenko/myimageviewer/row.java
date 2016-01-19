@@ -60,6 +60,7 @@ public class row  extends BaseAdapter  {
 			holder = (ViewHolder) convertView.getTag();
 		}
 			holder.imageView1.setImageResource(R.drawable.ic_launcher );   // 換圖片
+                                                                           // Change the picture 
 		
 		holder.textView1.setText(values[position]);
 		holder.textView2.setText(values2[position]);

@@ -45,6 +45,8 @@ public class SerialExample {
                     // 把現在的時間，傳遞過去。
                     serial.write("CURRENT TIME: %s", new Date().toString());
                     // 把特定的字元 ，傳遞過去。
+                    // The specific characters, pass it.
+                    
                     serial.write('\r');
                     serial.write('\n');
                     

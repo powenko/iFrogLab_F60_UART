@@ -51,7 +51,11 @@ public class page2  extends ActionBarActivity implements ifrogCallBack {
      protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.page2layout );          //顯示畫面資料
-          Bundle bundle= this.getIntent().getExtras();    // 取得第一頁傳遞過來的資料。 
+                                                          // Display information
+         
+          Bundle bundle= this.getIntent().getExtras();    // 取得第一頁傳遞過來的資料。
+                                                          // Get the first page of data passed.
+         
          String Names=bundle.getString("Names");
          deviceAddress=bundle.getString("Address");
          textView1=(TextView) findViewById(R.id.textView1 );   //取得TextView
@@ -63,7 +67,8 @@ public class page2  extends ActionBarActivity implements ifrogCallBack {
        
          
          // Handler Send button  
-         button1.setOnClickListener(new View.OnClickListener() {  // 監聽按鍵動作  
+         button1.setOnClickListener(new View.OnClickListener() {  // 監聽按鍵動作
+                                                                  // Monitor keystrokes
              @Override
              public void onClick(View v) {
              	String message = editText1.getText().toString();
@@ -92,12 +97,17 @@ public class page2  extends ActionBarActivity implements ifrogCallBack {
      }
      
      @Override                                              //用戶按下android 機器上的back 按鍵。
+                                                            // Android user presses the back button on the machine.
+    
      public boolean onKeyDown(int keyCode, KeyEvent event) {    
          if (keyCode == KeyEvent.KEYCODE_BACK) {   //查用戶按下back 按鍵 ?
+                                                   // Check the user presses the back button?
+             
         	 finish();
              return true;
          }
-         return super.onKeyDown(keyCode, event);     // 如果其他按鍵交給android 
+         return super.onKeyDown(keyCode, event);     // 如果其他按鍵交給android
+                                                     // If the other keys to android
      }
 	@Override
 	public void BTSearchFindDevice(BluetoothDevice arg0, int arg1, byte[] arg2) {
