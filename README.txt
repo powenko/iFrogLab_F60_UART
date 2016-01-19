@@ -1,6 +1,18 @@
-https://github.com/powenko/iFrogLab_F60_UART
 
 ### iFrogLab F60 UART ###
+
+===========================================================================
+Device and Video Tutorials
+
+the item could be purchased at 
+http://www.ifroglab.com
+
+more video tutorial and demo could watch at 
+https://www.youtube.com/playlist?list=PLkvu6TsdkQFoXUIVTa7cfhMmow_DUehXU
+
+source code could be download from 
+https://github.com/powenko/iFrogLab_F60_UART
+
 
 ===========================================================================
 DESCRIPTION:
